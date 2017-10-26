@@ -140,12 +140,14 @@ int main()
     Differentiate_HW(Temp_data[1], Temp_data[3]);
     Size = Compress_SW(Temp_data[2], Output_data);
   }
+  //printf("Temp_data[3][109] = %d\n", Temp_data[3][109]);
+
 #ifdef __SDSCC__
   unsigned long long Duration = sds_clock_counter() - Start;
   printf("Software duration: %llu cycles.\n", Duration);
 #endif
 
-  Store_data("/home/ylxiao/workspace/HW7_1a/src/Output.bin", Output_data, Size);
+  Store_data("Output.bin", Output_data, Size);
 
   int equal = Compare_ARRAYS(Temp_data[2], Temp_data[3]);
   Free(Input_data);
